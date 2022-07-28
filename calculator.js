@@ -48,3 +48,10 @@ operatorButtons.forEach((button)=>{
         operator=button.textContent;
     })
 })
+
+const equalButton=document.querySelector(".equal");
+let num2;
+equalButton.addEventListener("click",()=>{
+    num2=displayValue;
+    display.textContent=operate(operator,num1,num2);
+})

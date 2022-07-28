@@ -23,11 +23,11 @@ button{
     width: 40px;
 }
 .buttons,
-.equal{
+.right-side{
     display: flex;
     flex-direction: column;
 }
-.equal{
+.right-side{
     gap:10px;
     justify-content: space-between;
 }
