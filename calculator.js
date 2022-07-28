@@ -11,6 +11,7 @@ function multiply(num1,num2){
 }
 
 function divide(num1,num2){
+    if (num2===0){return "Error"}
     return num1/num2
 }
 
@@ -45,6 +46,7 @@ operatorButtons.forEach((button)=>{
     button.addEventListener("click",()=>{
         num1=displayValue;
         display.textContent="";
+        displayValue=+display.textContent;
         operator=button.textContent;
     })
 })
@@ -52,14 +54,22 @@ operatorButtons.forEach((button)=>{
 const equalButton=document.querySelector(".equal");
 let num2;
 equalButton.addEventListener("click",()=>{
+    if (!num1){return};
     num2=displayValue;
-    display.textContent=operate(operator,num1,num2);
+    if (Number.isInteger(operate(operator,num1,num2))===false){
+        display.textContent=operate(operator,num1,num2).toFixed(2);
+    } else{
+        display.textContent=operate(operator,num1,num2);
+    };
+    displayValue=+display.textContent;
+    num1=0;
 })
 
 const clearButton=document.querySelector(".clear");
 clearButton.addEventListener("click",()=>{
     num1="";
     num2="";
+    displayValue="";
     display.textContent="";
     operator="";
 })
