@@ -36,3 +36,15 @@ numberButtons.forEach((button)=>{
         displayValue=+display.textContent;
     })
 })
+
+const operatorButtons=document.querySelectorAll(".operators button")
+let num1;
+let operator;
+
+operatorButtons.forEach((button)=>{
+    button.addEventListener("click",()=>{
+        num1=displayValue;
+        display.textContent="";
+        operator=button.textContent;
+    })
+})
