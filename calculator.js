@@ -26,3 +26,13 @@ function operate(operator,num1,num2){
             return multiply(num1,num2);
     }
 }
+const numberButtons=document.querySelectorAll(".numbers button");
+const display=document.querySelector(".display");
+let displayValue
+
+numberButtons.forEach((button)=>{
+    button.addEventListener("click",()=>{
+        display.textContent += button.textContent;
+        displayValue=+display.textContent;
+    })
+})
