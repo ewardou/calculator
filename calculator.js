@@ -55,3 +55,11 @@ equalButton.addEventListener("click",()=>{
     num2=displayValue;
     display.textContent=operate(operator,num1,num2);
 })
+
+const clearButton=document.querySelector(".clear");
+clearButton.addEventListener("click",()=>{
+    num1="";
+    num2="";
+    display.textContent="";
+    operator="";
+})
