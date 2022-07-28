@@ -15,7 +15,7 @@ function divide(num1,num2){
 }
 
 function operate(operator,num1,num2){
-    switch (operator.toString()){
+    switch (operator){
         case "+":
             return add(num1,num2);
         case "-":
