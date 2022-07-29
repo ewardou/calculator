@@ -14,6 +14,10 @@ function divide(num1,num2){
     return num1/num2
 }
 
+function power(num1,num2){
+    return num1**num2;
+}
+
 function operate(operator,num1,num2){
     switch (operator){
         case "+":
@@ -24,6 +28,8 @@ function operate(operator,num1,num2){
             return divide(num1,num2);
         case "x":
             return multiply(num1,num2);
+        case "^":
+            return power(num1,num2);
     }
 }
 
