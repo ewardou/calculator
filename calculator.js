@@ -44,7 +44,8 @@ let chain=false;
 
 numberButtons.forEach((button)=>{
     button.addEventListener("click",(event)=>{
-        if (display.textContent=="0" || chain) {display.textContent=""}
+        if (display.textContent=="0" || chain) {display.textContent=""};
+        if (display.textContent.includes(".") && event.target.textContent===".") {return};
         chain=false;
         display.textContent += button.textContent;
         displayValue=+display.textContent;
@@ -94,4 +95,10 @@ clearButton.addEventListener("click",()=>{
     displayValue="";
     display.textContent="0";
     operator="";
+})
+
+const backSpaceButton=document.querySelector(".backspace");
+backSpaceButton.addEventListener("click",()=>{
+    display.textContent=display.textContent.slice(0,display.textContent.length-1);
+    displayValue=+display.textContent;
 })
