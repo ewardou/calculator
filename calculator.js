@@ -39,7 +39,8 @@ function fixResult(){
 
 const numberButtons=document.querySelectorAll(".numbers button");
 const display=document.querySelector(".display");
-let displayValue
+const tracker=document.querySelector(".operations-tracker");
+let displayValue;
 let chain=false;
 
 numberButtons.forEach((button)=>{
@@ -66,26 +67,33 @@ operatorButtons.forEach((button)=>{
             fixResult();
             displayValue=+display.textContent;
             num1=displayValue; 
-            operator=button.textContent;   
+            tracker.textContent=num1;
+            operator=button.textContent; 
+            tracker.textContent+=operator;  
             chain=true;
             target=event.target;
+            display.textContent="";
         } else {
             num1=displayValue;
+            if (target.textContent!="="){tracker.textContent+=num1} else if(target.textContent=="="){tracker.textContent=num1};
             display.textContent="";
             displayValue=+display.textContent;
             operator=button.textContent;
+            tracker.textContent+=operator;
         };
     })
 })
 
 const equalButton=document.querySelector(".equal");
 let num2;
-equalButton.addEventListener("click",()=>{
+equalButton.addEventListener("click",(event)=>{
     if (!num1){return};
     num2=displayValue;
+    tracker.textContent+=num2;
     fixResult();
     displayValue=+display.textContent;
     num1=undefined;
+    target=event.target;
 })
 
 const clearButton=document.querySelector(".clear");
@@ -94,6 +102,7 @@ clearButton.addEventListener("click",()=>{
     num2="";
     displayValue="";
     display.textContent="0";
+    tracker.textContent="";
     operator="";
 })
 
