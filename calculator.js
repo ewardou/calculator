@@ -30,24 +30,44 @@ function operate(operator,num1,num2){
 const numberButtons=document.querySelectorAll(".numbers button");
 const display=document.querySelector(".display");
 let displayValue
+let chain=false;
 
 numberButtons.forEach((button)=>{
-    button.addEventListener("click",()=>{
+    button.addEventListener("click",(event)=>{
+        if (display.textContent=="0" || chain) {display.textContent=""}
+        chain=false;
         display.textContent += button.textContent;
         displayValue=+display.textContent;
+        target=event.target
     })
 })
 
 const operatorButtons=document.querySelectorAll(".operators button")
 let num1;
 let operator;
+let target;
 
 operatorButtons.forEach((button)=>{
-    button.addEventListener("click",()=>{
-        num1=displayValue;
-        display.textContent="";
-        displayValue=+display.textContent;
-        operator=button.textContent;
+    button.addEventListener("click",(event)=>{
+        if (target.textContent=="x" || target.textContent=="/" || target.textContent=="+" || target.textContent=="-"){return};
+        if (num1){
+            num2=displayValue;
+            if (Number.isInteger(operate(operator,num1,num2))===false){
+                display.textContent=operate(operator,num1,num2).toFixed(2);
+            } else{
+                display.textContent=operate(operator,num1,num2);
+            };
+            displayValue=+display.textContent;
+            num1=displayValue; 
+            operator=button.textContent;   
+            chain=true;
+            target=event.target;
+        } else {
+            num1=displayValue;
+            display.textContent="";
+            displayValue=+display.textContent;
+            operator=button.textContent;
+        };
     })
 })
 
@@ -62,7 +82,7 @@ equalButton.addEventListener("click",()=>{
         display.textContent=operate(operator,num1,num2);
     };
     displayValue=+display.textContent;
-    num1=0;
+    num1=undefined;
 })
 
 const clearButton=document.querySelector(".clear");
@@ -70,6 +90,6 @@ clearButton.addEventListener("click",()=>{
     num1="";
     num2="";
     displayValue="";
-    display.textContent="";
+    display.textContent="0";
     operator="";
 })
