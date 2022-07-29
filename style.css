@@ -26,6 +26,8 @@ body{
 button{
     font-size: 30px;
     padding:5px 0px;
+    height: 48px;
+    box-sizing: border-box;
     width: 40px;
 }
 .buttons,
@@ -50,4 +52,7 @@ button{
 }
 .container{
     display:flex;
+}
+.change-sign{
+    font-size:28px;
 }

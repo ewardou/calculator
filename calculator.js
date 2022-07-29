@@ -117,3 +117,14 @@ backSpaceButton.addEventListener("click",()=>{
     display.textContent=display.textContent.slice(0,display.textContent.length-1);
     displayValue=+display.textContent;
 })
+
+const changeSignButton=document.querySelector(".change-sign");
+changeSignButton.addEventListener("click",()=>{
+    if (!display.textContent.includes("-")){
+        display.textContent="-"+display.textContent;
+        displayValue=+display.textContent;
+    } else if (display.textContent.includes("-")) {
+        display.textContent=display.textContent.replace("-","");
+        displayValue=+display.textContent;
+    }
+})
