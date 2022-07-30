@@ -128,3 +128,15 @@ changeSignButton.addEventListener("click",()=>{
         displayValue=+display.textContent;
     }
 })
+
+const percentageButton=document.querySelector(".percentage");
+percentageButton.addEventListener("click",()=>{
+    if (display.textContent.includes("%")) {return};
+    if (operator=="x" || operator=="/"){
+        displayValue=(+display.textContent)/100;
+    } else if (operator=="+" || operator=="-"){
+        displayValue=((+display.textContent)/100)*num1;
+    }
+    display.textContent=display.textContent+"%";
+    
+})
