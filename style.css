@@ -1,34 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
 body{
     background-color: rgb(144, 231, 202);
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family:'Roboto Mono', monospace;
 }
 .calculator{
-    background-color: bisque;
-    padding: 10px;
-    margin-top:30px;
+    background-color: rgb(159 182 215);
+    padding: 15px;
+    margin-top:70px;
+    border-radius: 10px;
+    border: solid black 2px;
+    box-shadow: 10px 5px;
 }
 .display,
 .operations-tracker{
     background-color: beige;
     text-align: right;
     padding: 5px;
-    margin-bottom: 15px;
-    font-size: 25px;
-    height: 30px;
+    font-size: 30px;
+    height: 32px;
 }
 .operations-tracker{
     margin-bottom: 0;
     height: 15px;
-    font-size: 15px;
+    font-size:18px;
 }
 button{
     font-size: 30px;
     padding:5px 0px;
     height: 48px;
-    box-sizing: border-box;
     width: 40px;
+    border-radius: 10%;
+    font-family:'Roboto Mono', monospace;
+    background-color: #d5d4d4;
 }
 .buttons,
 .right-side{
@@ -38,8 +45,17 @@ button{
 .right-side{
     gap:10px;
     justify-content: space-between;
+    flex:1;
 }
-.numbers{
+.right-side button{
+    width: 100%;
+    background-color: blue;
+    color:white;
+}
+.operators button{
+    background-color: white;
+}
+.numbers-container{
     width:150px;
     display:flex;
     flex-wrap: wrap;
@@ -55,4 +71,8 @@ button{
 }
 .change-sign{
     font-size:28px;
+}
+.display-container{
+    border:solid black 1px;
+    margin-bottom: 15px;
 }

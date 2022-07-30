@@ -43,7 +43,7 @@ function fixResult(){
     };
 }
 
-const numberButtons=document.querySelectorAll(".numbers button");
+const numberButtons=document.querySelectorAll(".numbers");
 const display=document.querySelector(".display");
 const tracker=document.querySelector(".operations-tracker");
 let displayValue;
